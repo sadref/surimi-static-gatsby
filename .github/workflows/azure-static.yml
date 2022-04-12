@@ -31,7 +31,8 @@ jobs:
       uses: azure/CLI@v1
       with:
         inlineScript: |
-            az storage blob upload-batch --account-name ${{secrets.STORAGE_ACCOUNT_NAME}} --auth-mode key -d '$web' --overwrite true -s .
+            az storage blob delete-batch -s "\$web" --connection-string "${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}"
+            az storage blob upload-batch -d "\$web" -s public --connection-string "${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}"
 
   # Azure logout
     - name: logout
