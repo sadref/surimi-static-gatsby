@@ -33,9 +33,3 @@ jobs:
         inlineScript: |
             az storage blob delete-batch -s "\$web" --connection-string "${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}"
             az storage blob upload-batch -d "\$web" -s public --connection-string "${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}"
-
-  # Azure logout
-    - name: logout
-      run: |
-            az logout
-      if: always()      
