@@ -1,0 +1,1 @@
+# This is a static website made with gatsby
